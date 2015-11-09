@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PedidosItensMVC.Models.Itens>
+
+<div class="form-horizontal">
+    <h4>Itens</h4>
+    <hr/>
+    <div class="form-group">
+        <label class="control-label col-md-2">Quantidade</label>
+        <div class="col-md-10">
+            <input type="text" id="Quantidade" name="Quantidade" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Produto</label>
+        <div class="col-md-10">
+            <input type="text" name="Produto" id="Produto" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Valor Unitário</label>
+        <div class="col-md-10">
+            <input type="text" name="ValorUnitario" id="ValorUnitario" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2  col-md-10">
+            <a href="#" onclick="salvarItens();">Gravar Itens</a>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="idPedido" value="@ViewBag.Pedido"/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model=>model.Quantidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorUnitario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayForModel(x.Quantidade)
+                </td>
+                <td>
+                    @Html.DisplayForModel(x.Produto)
+                </td>
+                <td>
+                    @Html.DisplayForModel(x.ValorUnitario)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
